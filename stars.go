@@ -34,10 +34,9 @@ func main() {
 			panic(err)
 		}
 
-		for i, s := range starred {
+		for _, s := range starred {
 			now := github_request_rate_limiter.Take()
 
-			fmt.Println(i, now.Sub(prev))
 			prev = now
 
 			rep := s.GetRepository()
